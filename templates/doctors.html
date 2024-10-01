@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}
+Doctors
+{% endblock %}
+
+{% block content %}
+<div class="container text-center mt-4">
+    <h1 class="mb-4">Meet Our Doctors</h1>
+    <hr>
+
+    <div class="row">
+        {% for d in doctors %}
+        <div class="col-md-4 mb-4">
+            <div class="card border border-warning" style="width: 15rem; height: 25rem;">
+                <img class="card-img-top" src="{{d.doc_image.url}}" alt="Doctor Image" style="object-fit: cover; height: 60%">
+                <div class="card-body" style="height: 40%">
+                    <h5 class="card-title mt-3">Dr. {{ d.doc_name}}</h5>
+                    <p class="card-text">{{ d.doc_spec}}</p>
+                    <h6 class="mb-3">{{ d.dep_name}} Department</h6>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock %}
